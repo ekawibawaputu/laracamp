@@ -13,16 +13,15 @@ class Checkout extends Model
     protected $fillable = [
         'user_id',
         'camp_id',
-        "card_number",
-        "cvc",
-        'expired',
-        "is_paid"
+        'payment_status',
+        'midtrans_url',
+        'midtrans_booking_code'
     ];
 
-    public function setExpiredAttribute($value)
-    {
-        $this->attributes['expired'] = date('Y-m-t', strtotime($value));
-    }
+    // public function setExpiredAttribute($value)
+    // {
+    //     $this->attributes['expired'] = date('Y-m-t', strtotime($value));
+    // }
 
     public function Camp() : BelongsTo
     {
